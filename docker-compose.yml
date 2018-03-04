@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+  customer.api:
+    image: customer.api       
+    build:
+      context: ./services/customer.api
+      dockerfile: Dockerfile.debug
+    ports: 
+    - "8081:80"
+    volumes: 
+      - ./services/customer.api/bin/pub/:/app
+    container_name: customer.api
+
+  pet.api:
+    image: pet.api
+    build:
+      context: ./services/pet.api
+      dockerfile: Dockerfile.debug
+    ports: 
+    - "8084:80"
+    volumes: 
+      - ./services/pet.api/bin/pub/:/app
+    container_name: pet.api     
+
