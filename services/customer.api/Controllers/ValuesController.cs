@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
+using customer.api.Entities;
+
 namespace customer.api.Controllers
 {
     [Route("api/[controller]")]
@@ -13,7 +15,10 @@ namespace customer.api.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var customer = new Customer();
+            customer.Name = "test";
+
+            return new string[] { "value1", customer.Name };
         }
 
         // GET api/values/5
