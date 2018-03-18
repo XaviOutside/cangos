@@ -1,8 +1,10 @@
 FROM node:alpine
 
-RUN npm install -g create-react-app && \
-    create-react-app cangos
+RUN npm install -g create-react-app
 
-WORKDIR /cangos
+# Execute this line the first time in order to create the init structure: 
+# $ create-react-app cangos
+
+WORKDIR /cangos/sources
 
 CMD yarn start
