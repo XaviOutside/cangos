@@ -23,6 +23,11 @@ namespace customer.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+            //services.AddCors(options => {  
+                //options.AddPolicy("fiver", policy => policy.WithOrigins("http://localhost:3000").WithMethods("GET", "POST", "HEAD"));  
+            //});  
+
             services.AddMvc();
         }
 
@@ -33,6 +38,8 @@ namespace customer.api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("AllowSpecificOrigin"); 
 
             app.UseMvc();
         }

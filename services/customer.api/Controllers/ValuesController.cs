@@ -16,9 +16,9 @@ namespace customer.api.Controllers
         public IEnumerable<string> Get()
         {
             var customer = new Customer();
-            customer.Name = "test";
+            customer.username = "test";
 
-            return new string[] { "value1", customer.Name };
+            return new string[] { "value1", customer.username };
         }
 
         // GET api/values/5
@@ -30,8 +30,14 @@ namespace customer.api.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IEnumerable<string> Post([FromBody]Customer customerData)
         {
+            var customer = new Customer();
+
+            customer.username = customerData.username;
+            customer.email = customerData.email;
+
+            return new string[] { "username", customer.username };
         }
 
         // PUT api/values/5
@@ -47,3 +53,4 @@ namespace customer.api.Controllers
         }
     }
 }
+

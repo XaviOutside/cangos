@@ -23,6 +23,10 @@ namespace pet.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => {  
+                options.AddPolicy("fiver", policy => policy.WithOrigins("http://localhost:3000"));  
+            });  
+
             services.AddMvc();
         }
 
@@ -33,6 +37,8 @@ namespace pet.api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("fiver"); 
 
             app.UseMvc();
         }
