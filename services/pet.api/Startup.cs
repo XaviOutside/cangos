@@ -24,7 +24,7 @@ namespace pet.api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options => {  
-                options.AddPolicy("fiver", policy => policy.WithOrigins("http://localhost:3000"));  
+                options.AddPolicy("fiver", policy => policy.WithOrigins("*"));  
             });  
 
             services.AddMvc();

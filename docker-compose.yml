@@ -10,6 +10,8 @@ services:
     ports: 
     - "8081:80"
     container_name: customer.api
+    networks:
+    - "cangos"
 
   pet.api:
     image: pet.api
@@ -19,6 +21,8 @@ services:
     ports: 
     - "8084:80"
     container_name: pet.api    
+    networks:
+    - "cangos"
     
   frontend:
     image: frontend.cangos
@@ -30,5 +34,8 @@ services:
     container_name: frontend.cangos
     volumes:
       - "./frontend:/cangos"
+    networks:
+    - "cangos"
 
-
+networks: 
+    cangos:

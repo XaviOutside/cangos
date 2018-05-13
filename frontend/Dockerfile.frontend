@@ -4,6 +4,7 @@ RUN npm install -g create-react-app
 
 # Execute this line the first time in order to create the init structure: 
 # $ create-react-app cangos
+# or execute npm install into /cangos/sources folder if already exists package.json file
 
 WORKDIR /cangos/sources
 

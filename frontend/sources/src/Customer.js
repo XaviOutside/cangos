@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Customer.css';
 
 const API = 'http://localhost:8081';
+//const API = 'http://customer.api';
 
 class Customer extends Component {
   constructor() {
@@ -11,26 +12,19 @@ class Customer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
+    //const data = new FormData(event.target);
     
-    //fetch(API + '/api/values', {
-      //method: 'POST',
-      //body: data,
-      //body: JSON.stringify(data),
-      //headers: { 'Content-Type': 'application/json' }
-    //});
-
-fetch('http://localhost:8081/api/values/', {
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    username: 'yourValue',
-    email: 'yourOtherValue',
-  }),
-});
+    fetch(API + '/api/values/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: 'yourValue',
+        email: 'yourOtherValue',
+      }),
+    });
 
   }
 

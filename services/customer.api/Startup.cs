@@ -24,9 +24,14 @@ namespace customer.api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            //services.AddCors(options => {  
+            services.AddCors(options => {  
                 //options.AddPolicy("fiver", policy => policy.WithOrigins("http://localhost:3000").WithMethods("GET", "POST", "HEAD"));  
-            //});  
+                options.AddPolicy("AllowSpecificOrigin", policy => policy.WithOrigins("*").WithMethods("GET", "POST", "HEAD"));  
+                //options.AddPolicy("Access-Control-Allow-Origin", policy => policy.with)
+                //header('Access-Control-Allow-Origin: *');
+                //header('Access-Control-Allow-Headers: X-Requested-With');
+                //header('Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS');
+            });  
 
             services.AddMvc();
         }
