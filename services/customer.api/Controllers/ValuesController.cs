@@ -9,6 +9,7 @@ using customer.api.Entities;
 namespace customer.api.Controllers
 {
     [Route("api/[controller]")]
+    //[EnableCors("fiver")]
     public class ValuesController : Controller
     {
         // GET api/values
