@@ -37,8 +37,9 @@ namespace customer.api.Controllers
 
             customer.username = customerData.username;
             customer.email = customerData.email;
+            customer.birthdate = customerData.birthdate;
 
-            return new string[] { "username", customer.username };
+            return new string[] { "username", customer.username, "email", customer.email, "birthdate", customer.birthdate };
         }
 
         // PUT api/values/5

@@ -31,21 +31,21 @@ class Customer extends Component {
     .catch((err)=>console.log(err));
   }
 
-  handleChange (evt) {
-    this.setState({ [evt.target.name]: evt.target.value });
+  handleChange (event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="username">Enter username</label>
-        <input id="username" name="username" type="text" value={this.state.username} onChange={this.handleChange} />
+        <input id="username" name="username" type="text" value={this.state.username} onChange={this.handleChange.bind(this)} />
 
         <label htmlFor="email">Enter your email</label>
-        <input id="email" name="email" type="email" value={this.state.email} onChange={this.handleChange} />
+        <input id="email" name="email" type="email" value={this.state.email} onChange={this.handleChange.bind(this)} />
 
         <label htmlFor="birthdate">Enter your birth date</label>
-        <input id="birthdate" name="birthdate" type="text" value={this.state.birthdate} onChange={this.handleChange} />
+        <input id="birthdate" name="birthdate" type="text" value={this.state.birthdate} onChange={this.handleChange.bind(this)} />
 
         <button>Send data!</button>
       </form>
